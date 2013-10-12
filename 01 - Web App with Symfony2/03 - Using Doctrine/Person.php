@@ -5,17 +5,20 @@ namespace Ahs\BlogBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Person
+ * Person (Class Table Inheritance Pattern)
  *
- * @ORM\Table()
+ * @ORM\Table(name="persons")
  * @ORM\Entity
+ * @ORM\InheritanceType("JOINED")
+ * @ORM\DiscriminatorColumn(name="person_type", type="string")
+ * @ORM\DiscriminatorMap({"PERSON" = "Person", "USER" = "User"})
  */
 class Person
 {
     /**
      * @var integer
      *
-     * @ORM\Column(name="id", type="integer")
+     * @ORM\Column(name="person_id", type="bigint")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
@@ -24,42 +27,42 @@ class Person
     /**
      * @var string
      *
-     * @ORM\Column(name="givenname", type="string", length=255)
+     * @ORM\Column(name="person_firstname", type="string", length=255)
      */
     private $givenname;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="familyname", type="string", length=255)
+     * @ORM\Column(name="person_surname", type="string", length=255)
      */
     private $familyname;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="profile", type="text")
+     * @ORM\Column(name="person_profile", type="text")
      */
     private $profile;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="created", type="datetimetz")
+     * @ORM\Column(name="person_created", type="datetimetz")
      */
     private $created;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="updated", type="datetimetz")
+     * @ORM\Column(name="person_modified", type="datetimetz")
      */
     private $updated;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="deleted", type="datetimetz")
+     * @ORM\Column(name="person_deleted", type="datetimetz")
      */
     private $deleted;
 

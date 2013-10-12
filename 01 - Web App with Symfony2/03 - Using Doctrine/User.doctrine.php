@@ -70,13 +70,6 @@ class User
      */
     private $lastlogin;
 
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="person_id", type="bigint")
-     */
-    private $personId;
-
 
     /**
      * Get id
@@ -247,28 +240,5 @@ class User
     public function getLastlogin()
     {
         return $this->lastlogin;
-    }
-
-    /**
-     * Set personId
-     *
-     * @param integer $personId
-     * @return User
-     */
-    public function setPersonId($personId)
-    {
-        $this->personId = $personId;
-    
-        return $this;
-    }
-
-    /**
-     * Get personId
-     *
-     * @return integer 
-     */
-    public function getPersonId()
-    {
-        return $this->personId;
     }
 }

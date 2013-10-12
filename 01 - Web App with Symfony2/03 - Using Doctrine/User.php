@@ -7,15 +7,15 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * User
  *
- * @ORM\Table()
+ * @ORM\Table(name="users")
  * @ORM\Entity
  */
-class User
+class User exteds Person
 {
     /**
      * @var integer
      *
-     * @ORM\Column(name="id", type="integer")
+     * @ORM\Column(name="user_id", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
@@ -24,58 +24,51 @@ class User
     /**
      * @var string
      *
-     * @ORM\Column(name="username", type="string", length=45)
+     * @ORM\Column(name="user_username", type="string", length=45)
      */
     private $username;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="email", type="string", length=255)
+     * @ORM\Column(name="user_email", type="string", length=255)
      */
     private $email;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="created", type="datetimetz")
+     * @ORM\Column(name="user_created", type="datetimetz")
      */
     private $created;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="updated", type="datetimetz")
+     * @ORM\Column(name="user_modified", type="datetimetz")
      */
     private $updated;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="deleted", type="datetimetz")
+     * @ORM\Column(name="user_deleted", type="datetimetz")
      */
     private $deleted;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="locked", type="datetimetz")
+     * @ORM\Column(name="user_locked", type="datetimetz")
      */
     private $locked;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="lastlogin", type="datetimetz")
+     * @ORM\Column(name="user_lastlogin", type="datetimetz")
      */
     private $lastlogin;
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="person_id", type="bigint")
-     */
-    private $personId;
 
 
     /**
@@ -247,28 +240,5 @@ class User
     public function getLastlogin()
     {
         return $this->lastlogin;
-    }
-
-    /**
-     * Set personId
-     *
-     * @param integer $personId
-     * @return User
-     */
-    public function setPersonId($personId)
-    {
-        $this->personId = $personId;
-    
-        return $this;
-    }
-
-    /**
-     * Get personId
-     *
-     * @return integer 
-     */
-    public function getPersonId()
-    {
-        return $this->personId;
     }
 }
